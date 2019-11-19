@@ -1,0 +1,89 @@
+<app-nav-bar></app-nav-bar>
+<app-header-boarder></app-header-boarder>
+
+
+<div class="container">
+  <form [formGroup]="lendForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+
+    <!-- Form Name -->
+    <h2 class="padding-top padding-bottom">Invest money</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <alert></alert>
+      </div>
+    </div>
+
+
+    <div class="row ">
+      <div class="col-md-12">
+        <div class="form-group text-muted">
+
+          <p>
+            <i class="fa fa-info-circle" style="color:red"></i> Minimum locking period will be 30 days. If withrawed before, no interest will be calculated.</p>
+<p>
+  <i class="fa fa-info-circle" style="color:red"></i> You will be getting $1 for each $100.</p>
+<p>
+  <i class="fa fa-info-circle" style="color:red"></i> You can make any number of investments within the same month.</p>
+</div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Transfer from account</label>
+      <select id="statebasic" formControlName="account" name="statebasic" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.account.errors }">                
+                <!-- <option value="987654321" selected >Checking - 987654321 ($ 1968.67)</option>   
+                <option value="123456789">Checking - 123456789 ($ 494245.34)</option>              -->
+                <option  *ngFor="let accountscount of (accounts | async)" value={{accountscount.account_number}}>{{accountscount.account_name}} - {{accountscount.account_number}} (${{accountscount.account_balance}})</option>             
+                  
+            </select>
+      <div *ngIf="submitted && f.account.errors" class="invalid-feedback">
+        <div *ngIf="f.account.errors.required">From account is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Amount</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">$</span>
+        </div>
+        <input id="amountinput" formControlName="amount" name="amountinput" type="text" placeholder="amount" class="form-control input-md"
+          required="" [ngClass]="{ 'is-invalid': submitted && f.amount.errors }">
+        <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+          <div *ngIf="f.amount.errors.required">Amount is required</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Investment period</label>
+      <input id="durationinput" formControlName="duration" name="durationinput" type="text" placeholder="duration in months" class="form-control input-md"
+        required="" [ngClass]="{ 'is-invalid': submitted && f.duration.errors }">
+      <div *ngIf="submitted && f.duration.errors" class="invalid-feedback">
+        <div *ngIf="f.duration.errors.required">Duration is required</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <button id="singlebutton" name="singlebutton" class="btn btn-success btn-space">Invest Now</button>
+      <button id="singlebutton" name="singlebutton" routerLink="/home" class="btn btn-secondary btn-space">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+</form>
+</div>
+<div class="padding-top padding-bottom"></div>
+<app-footer></app-footer>
+<!-- Footer -->

@@ -1,0 +1,55 @@
+<app-nav-bar></app-nav-bar>
+<app-header-boarder></app-header-boarder>
+
+
+<div class="container">
+
+  <h2 class="padding-top padding-bottom">Withdraw Now</h2>
+
+
+
+  <div class="row ">
+    <div class="col-md-12">
+      <div class="form-group text-muted">
+        <p>
+          <i class="fa fa-info-circle" style="color:red"></i> Minimum locking period will be 30 days. If withrawed before, no interest will be calculated.</p>
+</div>
+</div>
+</div>
+
+
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="table-primary">
+      <tr>
+        <th>ACCOUNT</th>
+        <th>TRANSACTION ID</th>
+        <th>DATE</th>
+        <th>AMOUNT</th>
+        <th>TOTAL BALANCE</th>
+        <th>INTEREST</th>
+        <th>MATURITY DATE</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let history of (lendAccountHistory | async)">
+      <td>{{history.account}}</td>
+      <td>{{history.transaction_id}}</td>
+      <td>{{history.transaction_date | date}}</td>
+      <td>{{history.amount | currency}}</td>
+      <td>{{history.balance | currency}}</td>
+      <td>{{history.interest | currency}}</td>
+      <td>{{history.maturity_date | date}}</td>
+      <td *ngIf="history.status!='closed'"><button (click)="manageWithdraw(history)" class="btn btn-outline-primary">Withdraw <i class="fa fa-check-circle" style="color:green"></i></button></td>
+      <td *ngIf="history.status=='closed'"><button  class="btn btn-outline-primary" disabled>Closed <i class="fa fa-check-circle" style="color:red"></i></button></td>
+    </tr>
+  </table>
+</div>
+
+
+
+</div>
+<div class="padding-top padding-bottom"></div>
+<app-footer></app-footer>
+<!-- Footer -->

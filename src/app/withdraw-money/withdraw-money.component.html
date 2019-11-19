@@ -1,0 +1,98 @@
+<app-nav-bar></app-nav-bar>
+<app-header-boarder></app-header-boarder>
+
+
+<div class="container">
+  <form [formGroup]="withdrawForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+
+    <!-- Form Name -->
+    <h2 class="padding-top padding-bottom">Withdraw money</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <alert></alert>
+      </div>
+    </div>
+
+
+    <div class="row ">
+      <div class="col-md-12">
+        <div class="form-group text-muted">
+          <p>
+            <i class="fa fa-info-circle" style="color:red"></i> Minimum locking period will be 30 days. If withrawed before, no interest will be calculated.</p>
+</div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+
+
+
+
+      <label>Transaction ID</label>
+      <input id="amountinput" formControlName="transaction_id" name="transaction_id" type="text" class="form-control input-md"
+        required="" disabled [ngClass]="{ 'is-invalid': submitted && f.transaction_id.errors }" value="{{history.transaction_id}}">
+      <div *ngIf="submitted && f.transaction_id.errors" class="invalid-feedback">
+        <div *ngIf="f.transaction_id.errors.required">Transaction id is required</div>
+      </div>
+
+
+
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Amount</label>
+      <input id="amountinput" formControlName="amount" name="amountinput" type="text" placeholder="amount" class="form-control input-md"
+        required disabled [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" value="${{history.amount}}">
+      <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+        <div *ngIf="f.amount.errors.required">Amount is required</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Account Number</label>
+      <input id="amountinput" formControlName="account" name="amountinput" type="text" placeholder="account" class="form-control input-md"
+        required disabled [ngClass]="{ 'is-invalid': submitted && f.account.errors }" value="{{history.account}}">
+      <div *ngIf="submitted && f.account.errors" class="invalid-feedback">
+        <div *ngIf="f.account.errors.required">Account is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Maturity Date</label>
+      <input id="amountinput" formControlName="maturity_date" name="amountinput" type="text" placeholder="Maturity Date" class="form-control input-md"
+        value="{{history.maturity_date | date}}" required disabled [ngClass]="{ 'is-invalid': submitted && f.maturity_date.errors }">
+      <div *ngIf="submitted && f.maturity_date.errors" class="invalid-feedback">
+        <div *ngIf="f.maturity_date.errors.required">Maturity date is required</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Button -->
+<div class="row ">
+  <div class="col-md-4">
+    <div class="form-group btn-group">
+      <button id="singlebutton" name="singlebutton" class="btn btn-success btn-space">Withdraw Now</button>
+      <button id="singlebutton" name="singlebutton" routerLink="/withdraw" class="btn btn-secondary btn-space">Cancel</button>
+    </div>
+  </div>
+</div>
+</form>
+</div>
+<div class="padding-top padding-bottom"></div>
+
+
+<app-footer></app-footer>
+<!-- Footer -->

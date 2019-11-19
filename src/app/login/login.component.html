@@ -1,0 +1,33 @@
+<div class="container login-container">
+  <div class="row">
+
+    <div class="col-md-6 login-form-2">
+      <form [formGroup]="loginForm" (ngSubmit)="validateLogin()" novalidate>
+        <alert></alert>
+        <h3>MiFi</h3>
+        <div class="form-group">
+          <input type="text" formControlName="userName" class="form-control" placeholder="Your Username *" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
+            value="" />
+          <div *ngIf="submitted && f.userName.errors" class="alert alert-danger">
+            <div *ngIf="f.userName.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="password" formControlName="passWord" class="form-control" placeholder="Your Password *" [ngClass]="{ 'is-invalid': submitted && f.passWord.errors }"
+            value="" />
+          <div *ngIf="submitted && f.passWord.errors" class="alert alert-danger">
+            <div *ngIf="f.passWord.errors.required">Password is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btnSubmit" value="Login" [disabled]="loginForm.pristine" />
+        </div>
+        <div class="form-group">
+
+          <a href="#" class="btnForgetPwd" value="Login">Forget Password?</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

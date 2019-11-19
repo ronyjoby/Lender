@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+<app-header-boarder></app-header-boarder>
+<!--<app-left-menu></app-left-menu>-->
+<section id="about">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <h4 class="text-muted">Loan applications history</h4>
+      <div class="table-responsive padding-top">
+        <table class="table table-striped table-hover">
+          <thead class="table-primary">
+            <tr>
+              <th>ACCOUNT</th>
+              <th>DATE</th>
+              <th>AMOUNT</th>
+              <th>PENDING BALANCE</th>
+              <th>INTEREST</th>
+              <th>LOAN END DATE</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let history of (loanAccountHistory | async)">
+            <td>{{history.account}}</td>
+            <td>{{history.transaction_date | date}}</td>
+            <td>{{history.amount | currency}}</td>
+            <td>{{history.balance | currency}}</td>
+            <td>{{history.interest | currency}}</td>
+            <td>{{history.maturity_date | date}}</td>
+            <td>{{history.status}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

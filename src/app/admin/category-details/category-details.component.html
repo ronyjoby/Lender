@@ -1,0 +1,93 @@
+<app-nav-admin></app-nav-admin>
+<app-header-boarder></app-header-boarder>
+<section id="team" class="pb-5">
+  <div class="container padding-top">
+
+    <div class="row">
+      <div class="col-md-6">
+        <alert></alert>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <div class="card">
+          <div class="card-body text-center">
+            <h4 class="card-title">{{category.name}} - {{category.description}} </h4>
+            <form [formGroup]="categoryDetailsForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+              <div class="form-group row">
+                <label class="col-lg-4 col-form-label form-control-label">Name</label>
+                <div class="col-lg-8">
+                  <input class="form-control" formControlName="name" type="text" disabled>
+                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Name is required</div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-4 col-form-label form-control-label">Description</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors}">
+                  <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                    <div *ngIf="f.description.errors.required">Description is required</div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-4 col-form-label form-control-label">Deposite interest rate</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" formControlName="lend_interest" [ngClass]="{ 'is-invalid': submitted && f.lend_interest.errors}">
+                  <div *ngIf="submitted && f.lend_interest.errors" class="invalid-feedback">
+                    <div *ngIf="f.lend_interest.errors.required">Lend interest is required</div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-4 col-form-label form-control-label">Loan interest rate</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" formControlName="loan_interest" [ngClass]="{ 'is-invalid': submitted && f.loan_interest.errors}">
+                  <div *ngIf="submitted && f.loan_interest.errors" class="invalid-feedback">
+                    <div *ngIf="f.loan_interest.errors.required">Loan interest is required</div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-4 col-form-label form-control-label">Pre approval limit</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="url" formControlName="pre_approval_limit" [ngClass]="{ 'is-invalid': submitted && f.pre_approval_limit.errors}">
+                  <div *ngIf="submitted && f.pre_approval_limit.errors" class="invalid-feedback">
+                    <div *ngIf="f.pre_approval_limit.errors.required">Pre approval limit is required</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-group row">
+                <label class="col-lg-4 col-form-label form-control-label">Total loan amount limit</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" formControlName="total_loan_amount_limit" value="{{category.total_loan_amount_limit}}"
+                    [ngClass]="{ 'is-invalid': submitted && f.total_loan_amount_limit.errors}">
+                  <div *ngIf="submitted && f.total_loan_amount_limit.errors" class="invalid-feedback">
+                    <div *ngIf="f.total_loan_amount_limit.errors.required">Total loan amount is required</div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-4 col-form-label form-control-label"></label>
+                <div class="col-lg-8 pull-right">
+                  <input type="reset" class="btn btn-secondary btn-space" value="Cancel" routerLink="/admin/category">
+                  <input type="submit" class="btn btn-primary btn-space" value="Save Changes">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

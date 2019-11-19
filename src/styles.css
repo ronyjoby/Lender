@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.min.css";
+.padding-top{
+    padding-top: 25px;
+}
+.padding-bottom{
+    padding-bottom: 25px;
+}
+.btn-space {
+    margin-right: 5px;
+}

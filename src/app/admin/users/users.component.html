@@ -1,0 +1,29 @@
+<app-nav-admin></app-nav-admin>
+<app-header-boarder></app-header-boarder>
+<div class="container">
+
+  <div class="table-responsive padding-top">
+    <table class="table table-striped table-hover">
+      <thead class="table-primary">
+        <tr>
+          <th>NAME</th>
+          <th>EMAIL</th>
+          <th>ADDRESS</th>
+          <th>CITY</th>
+          <th>STATE</th>
+          <th>CATEGORY</th>
+          <th>VIEW</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let user of (users | async)">
+        <td>{{user.firstname}} {{user.lastname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.city}}</td>
+        <td>{{user.state}}</td>
+        <td>{{user.category}}</td>
+        <td><button class="btn btn-outline-primary">View <i class="fa fa-search"></i></button></td>
+      </tr>
+    </table>
+  </div>
+</div>

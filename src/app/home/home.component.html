@@ -1,0 +1,55 @@
+<app-nav-bar></app-nav-bar>
+<app-header-boarder></app-header-boarder>
+<!--<app-left-menu></app-left-menu>-->
+<section id="about">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src="assets/images/invest1.jpg" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">Invest the amount on lend account and earn interest based on the perfomance.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" routerLink="/invest" class="btn btn-sm btn-success">Invest now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src="assets/images/loan1.jpg" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">Apply for a quick loan and get credited the amount within a short span with less formalities.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" routerLink="/borrow" class="btn btn-sm btn-success">Apply quick loan</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src="assets/images/invest2.jpg" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">Invested money can be withdrawed at any time. Interest payout will be based on conditions.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" routerLink="/withdraw" class="btn btn-sm btn-success">Withdraw money</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <app-invest-history></app-invest-history>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+<!-- Footer -->
